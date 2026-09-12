@@ -1,18 +1,23 @@
-# Testcases — Juice Yaso v1
+# Testcases — Juice Yaso v1 / v1.1
 
-สถานะ: **filled after ASK ME closed** · Tanya · source `docs/statuses.md` + `docs/usecases.md` + `docs/domain.md`  
-Acceptance ระดับโดเมน — ยังไม่ผูก HTTP path/DTO
+สถานะ: Tanya · source statuses + usecases + domain + **UX/API v3**  
+Acceptance ระดับโดเมน — ยังไม่ผูก HTTP path นอกที่ระบุใน api.md
 
 | ไฟล์ | ครอบคลุม |
 |------|----------|
-| [customer.md](./customer.md) | UC-CUS-01..07 สั่ง/ราคา/มัดจำ/บัตรคิว/ชำระ/สลิปซ้ำ/track/ยกเลิก |
-| [admin.md](./admin.md) | UC-ADM-01..04 ไลน์ approve/reject · PricingConfig · PaymentChannel · เลื่อนสถานะ |
-| [statuses.md](./statuses.md) | transition 8 สถานะ · ยกเลิกก่อน/หลัง packing · slip reject loop |
-| [deposit-scope.md](./deposit-scope.md) | UC-DEP-01 · e2e · นอกขอบเขต |
+| [customer.md](./customer.md) | UC-CUS-01..07 (payload เดิม `lines` — **เลิกใช้หลัง v1.1**; คงไว้เป็นประวัติ) |
+| [order-v3.md](./order-v3.md) | **ใช้ตรวจรอบนี้** — crates+fills คละรส · เบอร์ · step UI · hydration |
+| [admin.md](./admin.md) | UC-ADM · รายละเอียดออเดอร์แสดง crates |
+| [statuses.md](./statuses.md) | transition 8 · ยกเลิก · slip loop |
+| [deposit-scope.md](./deposit-scope.md) | UC-DEP · e2e · นอกขอบเขต |
 
-## DoD รอบนี้
-- [x] เคสเดิมจาก inbox อัปเดตหลังปิด ASK ME (ชื่อ+เบอร์, ปนรส, ไม่ส่ง, ไม่ดูออเดอร์เก่า, QR/บัญชี)
-- [x] transition 8 สถานะ + ยกเลิกก่อน/หลังกำลังแพ็ค
-- [x] อัปสลิปซ้ำหลังปฏิเสธ
-- [x] PaymentChannelConfig แอดมินแก้ได้
-- [ ] (นอกงาน Tanya) Jason/Fero ยังไม่ปล่อย · ห้ามโค้ด front/back
+## หมายเหตุ v1.1
+- `POST /orders` ต้องใช้ `crates[].fills[]` · ห้าม `lines`
+- เบอร์ `^0\d{9}$`
+- มัดจำยังคิดต่อลังตามขนาด · ราคาคิดจากแก้วรวมออเดอร์
+
+## DoD รอบ UX v3
+- [x] เคสคละรส / เบอร์ / step / UI แก้ว / hydration อยู่ใน `order-v3.md`
+- [ ] Jason back slice ผ่านเคส API
+- [ ] Fero front slice ผ่านเคส UI
+- [ ] Tanya รันจริงหลังมี slice แล้วอัปผล

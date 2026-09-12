@@ -1,3 +1,5 @@
+> **v1.1:** สร้างออเดอร์ใช้ `crates[].fills[]` — ดูเคสใหม่ใน [order-v3.md](./order-v3.md)
+
 # Customer testcases (UC-CUS)
 
 ## ตาราง

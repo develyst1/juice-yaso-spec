@@ -31,3 +31,6 @@ API/DB: ดู `docs/contracts/api.md` + `db.md` (อัปเดตรอบน
 
 ## 6. นอกขอบเขต
 Deploy · ส่งของ · login · เปลี่ยนกติคาสถานะ/ราคาฐาน
+
+## ต่อเนื่อง
+ดู [order-v3b.md](./order-v3b.md) สำหรับ quick-fill + hero compact

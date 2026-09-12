@@ -1,30 +1,18 @@
-# Contracts overview — intent only (LOCKED domain)
+# Contracts overview — Juice Yaso v1
 
-ยังไม่ล็อก HTTP path / DTO สุดท้าย — รอบนี้เป็น conceptual contract ให้ Tanya เขียน acceptance และห้าม Jason/Fero invent นอกนี้
+- Domain entities: ด้านล่าง + `docs/domain.md` + `docs/statuses.md`
+- **HTTP API:** [`api.md`](./api.md) — LOCKED สำหรับ implement
+- **DB:** [`db.md`](./db.md) — LOCKED สำหรับ implement
 
 ## Entities
-- **Order**: ชื่อ, เบอร์, บรรทัดลัง, ยอดสินค้า, ยอดมัดจำ, สถานะ, ลิงก์บัตรคิว
+- **Order**: ชื่อ, เบอร์, บรรทัดลัง, ยอดสินค้า, ยอดมัดจำ, สถานะ, queue_code
 - **OrderLine**: ขนาดลัง, จำนวนลัง, รส (หลายบรรทัด/หลายรสได้)
-- **QueueCard**: รหัสสาธารณะ — ชำระ / อัปสลิป / track / ยกเลิก โดยไม่ login
-- **PaymentSlip**: ไฟล์สลิป + ประวัติ reject reason
-- **AdminDecision**: approve | reject(+reason) จากไลน์
-- **PricingConfig**: base / threshold / bulk price
-- **DepositConfig**: map ขนาด → มัดจำ
-- **PaymentChannelConfig**: รูป QR, เลขบัญชี, ชื่อธนาคาร (แอดมินแก้ได้เสมอ)
-- **FlavorCatalog**: 5 รสที่ล็อก
-- **DepositReturn**: บันทึกคืนลัง / คืนมัดจำ
-
-## API surface (intent)
-- สร้างออเดอร์ (anonymous) พร้อมชื่อ+เบอร์
-- อ่านออเดอร์ด้วยรหัสบัตรคิว
-- อัปสลิป / อัปสลิปใหม่หลัง reject
-- ยกเลิกออเดอร์ (ถ้าสถานะอนุญาต)
-- แอดมิน/ไลน์: approve/reject สลิป
-- แอดมิน: อ่าน/อัปเดต PricingConfig, PaymentChannelConfig
-- แอดมิน/ร้าน: เลื่อนสถานะ packing → ready → picked_up
-- บันทึกคืนลัง/คืนมัดจำ
+- **QueueCard**: = `queue_code` สาธารณะ
+- **PaymentSlip**: ไฟล์สลิป + reject reason
+- **PricingConfig / PaymentChannelConfig / DepositReturn / FlavorCatalog**
 
 ## Forbidden invent
-- อย่าเพิ่มฟิลด์ที่อยู่ส่ง / โซนส่ง ใน v1
-- อย่าทำระบบดูออเดอร์เก่าโดยไม่มีบัตรคิว
-- อย่า auto-refund ใน v1 โดยไม่มีกติกาเพิ่มจากมนุษย์
+- อย่าเพิ่มที่อยู่ส่ง / โซนส่ง ใน v1
+- อย่าทำดูออเดอร์เก่าโดยไม่มี queue_code
+- อย่า auto-refund ใน v1
+- อย่าให้ front ต่อ Postgres

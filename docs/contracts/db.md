@@ -68,3 +68,24 @@ PostgreSQL · back เท่านั้นถือ connection string (env `DAT
 ## Rules in DB/app
 - Transition ตรวจใน service layer ตาม `docs/statuses.md` (อย่าพึ่ง DB trigger อย่างเดียวก็ได้ แต่ต้อง enforce)
 - ไม่เก็บที่อยู่ส่ง
+
+
+## v1.1 schema change — mixed flavors per crate
+
+แทนที่โมเดล `order_lines` แบบหนึ่งบรรทัดหนึ่งรส ด้วย:
+
+### order_crates
+- id uuid PK
+- order_id FK
+- crate_size int — 30|50|60|100
+- line_deposit numeric — มัดจำของลังนี้ตามขนาด
+
+### order_crate_fills
+- id uuid PK
+- crate_id FK → order_crates
+- flavor_code text FK flavors
+- cups int > 0
+- UNIQUE(crate_id, flavor_code)
+- CHECK: ผลรวม cups ต่อ crate_id ต้องเท่า crate_size (enforce ใน service; DB trigger optional)
+
+Migration: drop หรือเลิกใช้ `order_lines` สำหรับออเดอร์ใหม่ · ออเดอร์เก่ารอบ local ล้างได้

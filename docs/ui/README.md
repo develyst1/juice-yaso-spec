@@ -8,3 +8,6 @@ API/DB: **ไม่เปลี่ยน** — ใช้ `docs/contracts/api.md`
 - [pages.md](./pages.md) — หน้า + components หลัก
 - [assets.md](./assets.md) — icons / images / no emoji
 - Brand refs: [docs/brand-refs/](../brand-refs/)
+
+## UX v3
+ดู [docs/ux/order-v3.md](../ux/order-v3.md) — step ชื่อ-เบอร์ · UI แก้ว · ลังคละรส · hydration

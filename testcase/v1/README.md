@@ -7,6 +7,7 @@ Acceptance ระดับโดเมน — ยังไม่ผูก HTTP p
 |------|----------|
 | [customer.md](./customer.md) | UC-CUS-01..07 (payload เดิม `lines` — **เลิกใช้หลัง v1.1**; คงไว้เป็นประวัติ) |
 | [order-v3.md](./order-v3.md) | **ใช้ตรวจรอบนี้** — crates+fills คละรส · เบอร์ · step UI · hydration |
+| [order-v3b.md](./order-v3b.md) | **v3b** — เต็มที่เหลือ / +5/+10 · hero compact |
 | [admin.md](./admin.md) | UC-ADM · รายละเอียดออเดอร์แสดง crates |
 | [statuses.md](./statuses.md) | transition 8 · ยกเลิก · slip loop |
 | [deposit-scope.md](./deposit-scope.md) | UC-DEP · e2e · นอกขอบเขต |
@@ -18,6 +19,12 @@ Acceptance ระดับโดเมน — ยังไม่ผูก HTTP p
 
 ## DoD รอบ UX v3
 - [x] เคสคละรส / เบอร์ / step / UI แก้ว / hydration อยู่ใน `order-v3.md`
+| [order-v3b.md](./order-v3b.md) | **v3b** — เต็มที่เหลือ / +5/+10 · hero compact |
 - [ ] Jason back slice ผ่านเคส API
 - [ ] Fero front slice ผ่านเคส UI
 - [ ] Tanya รันจริงหลังมี slice แล้วอัปผล
+
+## DoD รอบ UX v3b
+- [x] เคส quick-fill / hero ใน `order-v3b.md`
+- [ ] Fero slice ผ่านเคส
+- [ ] Tanya รันจริงหลังมี slice

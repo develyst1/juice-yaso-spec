@@ -1,0 +1,10 @@
+# UI Redesign v2 — Juice Yaso
+
+สถานะ: **LOCKED** (Sober) · implement บน `juice-yaso-front` สาขา `Fero`  
+API/DB: **ไม่เปลี่ยน** — ใช้ `docs/contracts/api.md` + `db.md` + `statuses.md` เดิม
+
+- [theme.md](./theme.md) — Mantine theme tokens
+- [structure.md](./structure.md) — folder structure scalable
+- [pages.md](./pages.md) — หน้า + components หลัก
+- [assets.md](./assets.md) — icons / images / no emoji
+- Brand refs: [docs/brand-refs/](../brand-refs/)

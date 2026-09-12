@@ -58,6 +58,7 @@ body: `{ cratesReturned: true }`
 
 ### `GET /api/v1/admin/orders?status=`
 ลิสต์ออเดอร์ฝั่งร้าน (ไม่ใช่ลูกค้า) — สำหรับแพ็ค/อนุมัติ
+แต่ละรายการรวม `pendingSlipId` (สลิปล่าสุดที่ status=pending หรือ null) เพื่อ approve/reject โดยไม่ต้อง invent endpoint
 
 ## Non-goals API v1
 - ไม่มี auth ลูกค้า / ไม่มี list ออเดอร์ลูกค้าโดยไม่มี queueCode
